@@ -1,0 +1,160 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="../css/screen.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>KDS</title>
+</head>
+
+<body>
+    <div class="mainContainer">
+        <div class="checksContainer">
+            <!--check template-->
+        </div>
+        <div class="footer">
+            <div class="pvrLogo"></div>
+            <div class="kots">
+                KOTs
+                <div class="kotContainer">
+                    <!--kotTemplate-->
+                </div>
+            </div>
+            <div class="items">
+                ITEMs
+                <div class="itemContainer">
+                    <!--itemTemplate-->
+                </div>
+            </div>
+            <div class="history">
+                <i class="fa fa-history" aria-hidden="true"></i>
+                <div class="nameHistory">HISTORY</div>
+            </div>
+            <div class="mealCategory">
+                <div class="selectedCategory">KITCHEN</div>
+            </div>
+        </div>
+        <div class="categoryContainer">
+            <!--kitchen Template-->
+        </div>
+    </div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="../scripts/jquery.js"></script>
+<script type="text/javascript" src="../scripts/jsviews.js"></script>
+<script type="text/javascript" src="../js/middleWare.js"></script>
+<script type="text/javascript" src="../js/baseAkshay.js"></script>
+<script type="text/javascript" src="../js/appConfig.js"></script>
+<script type="text/javascript" src="../js/index.js"></script>
+
+</html>
+<!-- scripts starts here-->
+<script id="checkTemplate" type="text/x-jsrender">
+    {^{if isCheckReady==false}}
+    <div class="check">
+        <div class="checkLayer">
+            <div class="checkLayer2"></div>
+            <div class="checkLayer1"></div>
+        </div>
+        <div class="checkHeader">
+            <div class="seatInfo">
+                <div class="seatName">{^{:seatNumber}}</div>
+                <div class="seatNumber">{^{:audiNumber}}</div>
+            </div>
+            <div class="graName">{^{:graName}}</div>
+            <div class="timer">
+                <div class="minute">{^{:timerMinute}}</div>
+                <div class="second">{^{:timerSecond}}</div>
+            </div>
+        </div>
+        <div class="checkOrders">
+            {^{for items}} {^{if posId== ~filter}} {^{if isCanceled}}
+            <div class="itemBar">
+                <div class="itemQuantity">{^{:quantity}}</div>
+                <div class="itemName" style="text-decoration: line-through">{^{:name}}</div>
+                <div class="mark"><i class="fa fa-check-circle" aria-hidden="true" style="color:#7F8C8D"></i></div>
+            </div>
+            {{else}}
+            <div class="itemBar">
+                <div class="itemQuantity">{^{:quantity}}</div>
+                <div class="itemName">{^{:name}}</div>
+                
+                {^{if isDone}}
+                <div class="mark" data-link="{on ~selectItem}"><i class="fa fa-check-circle" aria-hidden="true" style="color:#2ecc71"></i></div>
+                {{else}}
+                <div class="mark" data-link="{on ~selectItem}"><i class="fa fa-check-circle" aria-hidden="true"></i></div>
+                {{/if}}
+            </div>
+            {{/if}} {{/if}} {{/for}}
+        </div>
+        <div class="checkFooter">
+            <div class="leftFooter"></div>
+            <div class="midFooter">
+                <div class="checkId">#{^{:id}}</div>
+                <div class="checkReady" data-link="{on ~ready}">
+                    <img class="tickImage" src="../images/tick.png" />
+                </div>
+            </div>
+            <div class="rightFooter"></div>
+        </div>
+    </div>
+    {{/if}}
+</script>
+<script id="checkHistoryTemplate" type="text/x-jsrender">
+    {^{if isCheckReady==true}}
+    <div class="check">
+        <div class="checkLayer">
+            <div class="checkLayer2"></div>
+            <div class="checkLayer1"></div>
+        </div>
+        <div class="checkHeader">
+            <div class="seatInfo">
+                <div class="seatName">{^{:seatNumber}}</div>
+                <div class="seatNumber">{^{:audiNumber}}</div>
+            </div>
+            <div class="graName">{^{:graName}}</div>
+            <div class="timer">
+                <div class="minute">{^{:timeStampMinute}}</div>
+                <div class="second">{^{:timeStampSecond}}</div>
+            </div>
+        </div>
+        <div class="checkOrders">
+            {^{for items}} {^{if (isDone==true && posId == ~filter) || (isCanceled && isDone==false && posId == ~filter)}} {^{if isCanceled}}
+            <div class="itemBar">
+                <div class="itemQuantity">none</div>
+                <div class="itemName" style="text-decoration: line-through">{^{:name}}</div>
+                <div class="mark" data-link="{on ~selectItem}"><i class="fa fa-check-circle" aria-hidden="true"></i></div>
+            </div>
+            {{else}}
+            <div class="itemBar">
+                <div class="itemQuantity">{^{:quantity}}</div>
+                <div class="itemName">{^{:name}}</div>
+                <div class="mark" data-link="{on ~selectItem}"><i class="fa fa-check-circle" aria-hidden="true" style="color:#2ecc71"></i></div>
+            </div>
+            {{/if}} {{/if}} {{/for}}
+        </div>
+        <div class="checkFooter">
+            <div class="leftFooter"></div>
+            <div class="midFooter">
+                <div class="checkId">#{^{:id}}</div>
+                <div class="checkReady">
+                    <img class="tickImage" src="../images/tick.png" />
+                </div>
+            </div>
+            <div class="rightFooter"></div>
+        </div>
+    </div>
+    {{/if}}
+</script>
+<script id="kotTemplate" type="text/x-jsrender">
+    <div class="kotNum">{^{:kotNum}}</div>
+</script>
+<script id="itemTemplate" type="text/x-jsrender">
+    <div class="itemsNum">{^{:itemsNum}}</div>
+</script>
+<script id="kitchensTemplate" type="text/x-jsrender">
+    {^{for kitchens}}
+    <div class="kitchen" data-link="{on ~selectKitchen}">{^{:name}}</div>
+    {{/for}}
+</script>

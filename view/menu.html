@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RealBox Billing</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/screen.css">
+    <link rel="stylesheet" href="../css/menuStyle.css">
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="itemsContainer">
+        <div class="items">
+            <!--script itemsTemplate-->
+        </div>
+    </div>
+    <div class="billContainer">
+        <div class="yourOrder">Your order</div>
+        <div class="addedItems">
+            <!--script selectedItemsTemplate-->
+            <!--script searchedItemsTemplate-->
+        </div>
+        <div class="discountCode">
+            <input type="text" class="inputBox" placeholder="Enter Gra Name">
+            <div class="enterGra">submit</div>
+        </div>
+        <div class="finalBill">
+            <!--script totalBillTemplate-->
+        </div>
+        <div class="checkOut">Proceed to checkOut</div>
+    </div>
+    <div class="searchContainer">
+        <input class="inputSearch" placeholder="enter check ID">
+        <div class="doSearch">Search</div>
+    </div>
+    <div class="clearSearch">Clear Search</div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/jsrender.js"></script>
+    <script type="text/javascript" src="../scripts/jsviews.js"></script>
+    <script type="text/javascript" src="../js/middleWare.js"></script>
+    <script type="text/javascript" src="../js/baseAkshay.js"></script>
+    <script type="text/javascript" src="../js/menu.js"></script>
+</body>
+<!--templates starts here-->
+<script type="text/x-jsrender" id="itemsTemplate">
+    {^{for itemsDetails}}
+    <div class="item">
+        {^{if category}}
+        <div class="category" style="color: green">
+            <i class="fa fa-circle-o"></i>
+        </div>
+        {{else}}
+        <div class="category" style="color: #e74c3c">
+            <i class="fa fa-circle-o"></i>
+        </div>
+        {{/if}}
+        <div class="itemImage">
+            <img src="../images/item1.png" class="image">
+        </div>
+        <div class="itemDescription">
+            <div class="itemName" data-link="name"></div>
+            <div class="description" data-link="description"></div>
+        </div>
+        <div class="price"><i class="fa fa-rupee"> {^{:price}}</i></div>
+        <div class="addItem" data-id="{{:id}}">
+            <i class="fa fa-plus-square-o"></i>
+        </div>
+    </div>
+    {{/for}}
+</script>
+<script type="text/x-jsrender" id="selectedTemplate">
+{^{for selectedItems}}
+    <div class="item">
+        <div class="totalItem" data-link="quantity">{^{:quantity}}</div>
+        <div class="itemName" data-link="name">{^{:name}}</div>
+        <div class="moreItems">
+            <div class="addMore">
+                <i class="fa fa-plus"></i>
+            </div>
+            <div class="remove">
+                <i class="fa fa-minus"></i>
+            </div>
+        </div>
+    </div>
+    {{/for}}
+</script>
+<script type="text/x-jsrender" id="searchedItemsTemplate">
+    {^{for items}}{^{if !isDone}} {^{if isCanceled}}
+    <div class="itemSearched">
+        <div class="totalItem">{^{:quantity}}</div>
+        <div class="itemName" style="text-decoration: line-through">{^{:name}}</div>
+        <div class="unCancelItem" data-link="{on ~unCanceled}"></div>
+    </div>
+    {{else}}
+    <div class="itemSearched">
+        <div class="totalItem">{^{:quantity}}</div>
+        <div class="itemName">{^{:name}}</div>
+        <div class="moreItems">
+            <div class="addMore">
+                <i class="fa fa-plus" data-link="{on ~add}"></i>
+            </div>
+            <div class="remove">
+                <i class="fa fa-minus" data-link="{on ~sub}"></i>
+            </div>
+        </div>
+        <div class="cancelItem" data-link="{on ~cancel}"></div>
+    </div>
+    {{/if}} {{/if}} {{/for}}
+</script>
+<script id="totalBill" type="text/x-jsrender">
+    <div class="total">Total Rs {^{:total}}</div>
+</script>
+
+</html>

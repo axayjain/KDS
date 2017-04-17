@@ -1,0 +1,445 @@
+@cloud: #ecf0f1;
+@emerald: #2ecc71;
+@asphalt: #34495E;
+@astroid: #7F8C8D;
+@ebony: #22313F;
+@main: #b81c34;
+@selectedColor: #1E824C;
+body {
+    margin: 0rem;
+    padding: 0rem;
+    overflow: hidden;
+}
+
+.mainContainer {
+    height: 100%;
+    width: 100%;
+    .checksContainer {
+        bottom: 10rem;
+        width: 100%;
+        background: @main;
+        overflow: auto;
+        top: 0rem;
+        position: absolute;
+        .check {
+            height: 37rem;
+            width: 22rem;
+            margin-left: 9rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            float: left;
+            position: relative;
+            .checkLayer {
+                width: 21rem;
+                height: 2rem;
+                left: 1rem;
+                position: relative;
+                .checkLayer1 {
+                    width: 21rem;
+                    height: 1rem;
+                    bottom: 0rem;
+                    border-top-left-radius: 1rem;
+                    border-top-right-radius: 1rem;
+                    position: absolute;
+                    background: rgba(255, 255, 255, 0.6);
+                }
+                .checkLayer2 {
+                    width: 19rem;
+                    height: 1.8rem;
+                    left: 1rem;
+                    position: absolute;
+                    bottom: 0rem;
+                    border-top-left-radius: 1rem;
+                    border-top-right-radius: 1rem;
+                    background: rgba(255, 255, 255, 0.6);
+                }
+            }
+            .checkHeader {
+                height: 5rem;
+                border-top-left-radius: 1rem;
+                border-top-right-radius: 1rem;
+                color: #000000;
+                background-color: #ffffff;
+                text-align: center;
+                padding-top: 1rem;
+                line-height: 5rem;
+                padding-bottom: .1rem;
+                padding-left: 1rem;
+                font-size: 2.5rem;
+                font-family: sans-serif;
+                width: 22rem;
+                position: relative;
+                .seatInfo {
+                    width: 4.5rem;
+                    height: 100%;
+                    border-bottom: 1px dashed gray;
+                    float: left;
+                    position: relative;
+                    .seatName {
+                        height: 2.5rem;
+                        font-size: 2rem;
+                        width: 100%;
+                        font-weight: bold;
+                        line-height: 4rem;
+                        position: relative;
+                    }
+                    .seatNumber {
+                        height: 2.5rem;
+                        font-size: .8rem;
+                        width: 100%;
+                        line-height: 2.5rem;
+                        font-family: sans-serif;
+                        position: relative;
+                    }
+                }
+                .graName {
+                    width: 11rem;
+                    height: 100%;
+                    text-align: center;
+                    border-bottom: 1px dashed gray;
+                    border-left: 1px dashed gray;
+                    border-right: 1px dashed gray;
+                    line-height: 7rem;
+                    font-size: 1rem;
+                    float: left;
+                    font-family: sans-serif;
+                    position: relative;
+                }
+                .timer {
+                    width: 5rem;
+                    height: 100%;
+                    text-align: center;
+                    border-bottom: 1px dashed gray;
+                    line-height: 5rem;
+                    font-size: 1.5rem;
+                    float: left;
+                    font-family: sans-serif;
+                    position: relative;
+                    .minute {
+                        height: 2.5rem;
+                        font-size: 2rem;
+                        width: 100%;
+                        line-height: 3.5rem;
+                        font-weight: bold;
+                        font-family: sans-serif;
+                        position: relative;
+                    }
+                    .second {
+                        height: 2.5rem;
+                        font-size: 1.2rem;
+                        width: 100%;
+                        line-height: 2.5rem;
+                        font-family: sans-serif;
+                        position: relative;
+                    }
+                }
+            }
+            .checkOrders {
+                height: 23rem;
+                width: 22rem;
+                padding-left: 1rem;
+                background-color: #ffffff;
+                position: relative;
+                overflow: auto;
+                .itemBar {
+                    height: 4rem;
+                    width: 20.6rem;
+                    margin-left: .2rem;
+                    margin-bottom: .2rem;
+                    margin-top: .2rem;
+                    position: relative;
+                    .itemQuantity {
+                        width: 4rem;
+                        float: left;
+                        text-align: center;
+                        line-height: 4rem;
+                        font-size: 1.5rem;
+                        font-family: sans-serif;
+                        height: 100%;
+                        position: relative;
+                    }
+                    .itemName {
+                        width: 12.6rem;
+                        float: left;
+                        height: 100%;
+                        text-align: center;
+                        line-height: 4rem;
+                        font-family: sans-serif;
+                        font-size: 1rem;
+                        position: relative;
+                    }
+                    .mark {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        border-radius: 2rem;
+                        margin-right: .8rem;
+                        margin-top: .75rem;
+                        float: right;
+                        .fa-check-circle {
+                            color: #e74c3c;
+                            position: relative;
+                            font-size: 2.8rem;
+                            cursor: pointer;
+                            line-height: 2.5rem;
+                        }
+                    }
+                    .historyMark {
+                        width: 7rem;
+                        height: 3.5rem;
+                        border-radius: 2rem;
+                        margin-right: .8rem;
+                        margin-top: .5rem;
+                        line-height: 3rem;
+                        text-align: center;
+                        color: @ebony;
+                        font-size: 2rem;
+                        font-family: sans-serif;
+                        float: right;
+                    }
+                }
+                .itemBar:hover {
+                    background: @cloud;
+                }
+            }
+            .checkFooter {
+                height: 8rem;
+                padding-left: 1rem;
+                border-top: 1px dashed gray;
+                position: relative;
+                background: #ffffff;
+                border-bottom-left-radius: 1rem;
+                border-bottom-right-radius: 1rem;
+                width: 100%;
+                .leftFooter {
+                    height: 3rem;
+                    width: 3rem;
+                    border-radius: 1.5rem;
+                    float: left;
+                    left: -3rem;
+                    margin-top: 2rem;
+                    position: relative;
+                    background: @main;
+                }
+                .midFooter {
+                    height: 100%;
+                    width: 10rem;
+                    left: 3rem;
+                    float: left;
+                    position: relative;
+                    .checkId {
+                        height: 3rem;
+                        width: 2rem;
+                        margin-left: 4rem;
+                        text-align: center;
+                        line-height: 3rem;
+                        color: #000000;
+                        font-weight: bold;
+                        font-size: 2rem;
+                        margin-top: 1rem;
+                        font-family: sans-serif;
+                        position: relative;
+                    }
+                    .checkReady {
+                        height: 6rem;
+                        width: 6rem;
+                        border-radius: 3rem;
+                        background: yellow;
+                        background-position: center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        margin-top: 1rem;
+                        margin-left: 2rem;
+                        cursor: pointer;
+                        position: relative;
+                        box-shadow: 0px 5px 30px 0px rgba(241, 196, 15, 0.5);
+                        .tickImage {
+                            position: relative;
+                            width: 4rem;
+                            margin-left: 1rem;
+                            margin-top: 1rem;
+                        }
+                    }
+                }
+                .rightFooter {
+                    height: 3rem;
+                    width: 3rem;
+                    border-radius: 1.5rem;
+                    right: -2rem;
+                    margin-top: 2rem;
+                    float: right;
+                    position: relative;
+                    background: @main;
+                }
+            }
+        }
+        // .check:hover {
+        //     transition: .1s;
+        //     box-shadow: 4px 4px 50px 10px rgba(0, 0, 0, 0.6);
+        // }
+    }
+    .footer {
+        height: 10rem;
+        background-color: #9e172c;
+        position: absolute;
+        width: 100%;
+        bottom: 0rem;
+        .pvrLogo {
+            width: 20rem;
+            height: 100%;
+            float: left;
+            background-image: url("../images/logo.png");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            position: relative;
+        }
+        .kots {
+            width: 15rem;
+            float: left;
+            margin-left: 7rem;
+            font-family: 'Montserrat', sans-serif;
+            color:@cloud;
+            font-weight: bold;
+            font-size: 2rem;
+            line-height: 10rem;
+            height: 100%;
+            position: relative;
+            .kotContainer {
+                width: 8rem;
+                float: right;
+                height: 100%;
+                .kotNum {
+                    width: 7rem;
+                    height: 100%;
+                    line-height: 10rem;
+                    font-size: 4.5rem;
+                    font-weight: bold;
+                    font-family: 'Montserrat', sans-serif;
+                    color: @cloud;
+                    position: relative;
+                }
+            }
+        }
+        .items {
+            width: 17rem;
+            float: left;
+            margin-left: 7rem;
+            font-family: sans-serif;
+            color:@cloud;
+            font-weight: bold;
+            font-size: 2rem;
+            line-height: 10rem;
+            height: 100%;
+            position: relative;
+            .itemContainer {
+                width: 9rem;
+                float: right;
+                height: 100%;
+                .itemsNum {
+                    width: 7rem;
+                    height: 100%;
+                    line-height: 10rem;
+                    font-weight: bold;
+                    font-size: 4.5rem;
+                    font-family: 'Montserrat', sans-serif;
+                    color: @cloud;
+                    position: relative;
+                }
+            }
+        }
+        .mealCategory {
+            width: 15rem;
+            float: right;
+            height: 100%;
+            position: relative;
+            .selectedCategory {
+                height: 7rem;
+                width: 7rem;
+                float: left;
+                border-radius: 3.5rem;
+                margin-left: 3rem;
+                margin-top: 1.5rem;
+                font-size: 1rem;
+                text-align: center;
+                line-height: 7rem;
+                font-weight: bold;
+                color: #000000;
+                position: relative;
+                font-family: sans-serif;
+                cursor: pointer;
+                background-color: @cloud;
+            }
+        }
+        .history {
+            width: 10rem;
+            float: right;
+            height: 100%;
+            position: relative;
+            .fa-history {
+                width: 100%;
+                height: 6rem;
+                text-align: center;
+                color: @cloud;
+                cursor: pointer;
+                line-height: 8rem;
+                font-size: 6rem;
+                position: relative;
+            }
+            .nameHistory {
+                width: 100%;
+                height: 3rem;
+                text-align: center;
+                font-family: sans-serif;
+                margin-top: 1.5rem;
+                color: @cloud;
+                font-size: 1rem;
+            }
+        }
+    }
+    .categoryContainer {
+        height: 6rem;
+        width: auto;
+        border-radius: .5rem;
+        float: right;
+        position: absolute;
+        right: 5.3rem;
+        bottom: 14rem;
+        display: none;
+        .kitchen {
+            height: 8rem;
+            width: 8rem;
+            float: left;
+            border-radius: 4rem;
+            margin-left: .5rem;
+            margin-right: .5rem;
+            margin-top: 1rem;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-align: center;
+            line-height: 8rem;
+            color: #ffffff;
+            position: relative;
+            font-family: sans-serif;
+            cursor: pointer;
+            background-color: #000000;
+        }
+        .kitchen:hover {
+            background-color: yellow;
+            color: #000000;
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 1);
+}
